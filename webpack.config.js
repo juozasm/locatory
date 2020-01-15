@@ -23,15 +23,28 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/i,
-        exclude: /node_modules/,
+        test: /\.s?css$/,
         use: [
-          'style-loader',
+          { loader: 'style-loader' },
           {
             loader: 'css-loader',
             options: {
+              sourceMap: true,
               modules: true,
             },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              config: {
+                path: 'postcss.config.js',
+              },
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: true },
           },
         ],
       },
