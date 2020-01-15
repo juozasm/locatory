@@ -13,8 +13,8 @@ module.exports = {
         use: ['babel-loader', 'eslint-loader'],
       },
       {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        use: ['babel-loader', '@svgr/webpack', 'url-loader'],
       },
       {
         test: /\.(jpg|png)$/,

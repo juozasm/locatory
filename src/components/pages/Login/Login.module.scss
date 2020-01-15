@@ -1,0 +1,38 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../../assets/loginBackground.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+}
+.box {
+  max-width: 450px;
+}
+
+.loginInput {
+  width: 100%;
+  input {
+    width: 100%;
+  }
+}
+
+.loginBtn {
+  width: 100%;
+}
+
+.logo {
+  img {
+    max-width: 100%;
+  }
+  margin-bottom: 30px;
+}
+
+.error {
+  padding: 15px 20px;
+  color: #fff;
+  background-color: rgb(213, 51, 51);
+}

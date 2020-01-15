@@ -23,5 +23,5 @@ export default function ProtectedRoute({
 }
 
 ProtectedRoute.propTypes = {
-  component: PropTypes.element,
+  component: PropTypes.elementType,
 };
