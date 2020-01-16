@@ -13,11 +13,7 @@ export default function ProtectedRoute({
     <Route
       {...rest}
       render={props =>
-        authenticated ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/login" />
-        )
+        authenticated ? <Redirect to="/" /> : <Component {...props} />
       }
     />
   );

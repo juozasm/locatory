@@ -1,0 +1,47 @@
+@import './theme.scss';
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #000;
+  background-color: $grey-background;
+}
+
+:global {
+  .mb-20 {
+    margin-bottom: 20px;
+  }
+  .mt-20 {
+    margin-top: 20px;
+  }
+}
+
+button {
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background-color: #ffffff;
+  &:focus {
+    outline: 0;
+    border: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(117, 117, 117, 0.5);
+  border: 1px solid #e6e9ec;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a4a6a9;
+}

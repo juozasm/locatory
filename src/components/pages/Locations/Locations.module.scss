@@ -1,3 +1,8 @@
+@import '~styles/theme.scss';
 .root {
-  color: red;
+}
+
+.scrollArea {
+  overflow: auto;
+  max-height: calc(100vh - #{$header-height} - 57px);
 }

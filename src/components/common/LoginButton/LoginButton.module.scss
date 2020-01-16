@@ -1,17 +1,11 @@
+@import '~styles/theme.scss';
 .root {
-  background-color: rgb(213, 51, 51);
+  background-color: $locatory-red;
   font-weight: 600;
   color: #fff;
-  outline: 0;
-  border: 0;
   height: 50px;
   border-radius: 5px;
-  cursor: pointer;
-  &:focus {
-    outline: 0;
-    border: 0;
-  }
   &:hover {
-    background-color: rgb(247, 144, 144);
+    background-color: $locatory-red-hovered;
   }
 }

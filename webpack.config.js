@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { resolve } = require('path');
 
@@ -53,6 +52,7 @@ module.exports = {
     ],
   },
   resolve: {
+    modules: [path.resolve(__dirname, './src'), 'node_modules'],
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
@@ -61,7 +61,6 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html'),
       filename: 'index.html',

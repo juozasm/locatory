@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import validateForm from './validateForm';
+import validateForm from '../utils/validateForm';
 import isEmpty from 'lodash/isEmpty';
 import omit from 'lodash/omit';
 
@@ -22,7 +22,6 @@ export default function useFormValidation() {
     name =>
       failedValidations[name] &&
       setFailedValidations(omit(failedValidations, name)),
-    [failedValidations],
   );
 
   return {

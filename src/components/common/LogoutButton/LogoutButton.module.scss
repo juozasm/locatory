@@ -1,0 +1,13 @@
+@import '~styles/theme.scss';
+.root {
+  display: block;
+  padding: 10px;
+  &:hover {
+    background-color: $grey-background;
+  }
+}
+
+.logo {
+  display: inline-block;
+  margin-right: 10px;
+}

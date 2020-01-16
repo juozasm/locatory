@@ -10,6 +10,7 @@ const app = express();
 const SECRET = 'asfni54d9gv3';
 
 app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 
 app.post('/token', (req, res, next) => {

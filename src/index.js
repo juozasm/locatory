@@ -4,7 +4,7 @@ import App from './components/App';
 import { Provider } from 'react-redux';
 import store from './store';
 import 'normalize.css';
-import './reset.css';
+import './styles/reset.scss';
 
 const rootEl = document.getElementById('root');
 

@@ -4,7 +4,9 @@
   "description": "Locatory.com frontend task",
   "dependencies": {
     "autoprefixer": "^9.7.4",
+    "axios": "^0.19.1",
     "classnames": "^2.2.6",
+    "lodash": "^4.17.15",
     "normalize.css": "^8.0.1",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.7.2",

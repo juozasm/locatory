@@ -1,12 +1,13 @@
 import React, { useReducer, useCallback } from 'react';
 import styles from './Login.module.scss';
-import logo from '../../../assets/sensus-pro.png';
-import { InputWithIcon } from '../../common/Input';
-import lockSVG from '../../../assets/ico-lock.svg';
-import userSVG from '../../../assets/ico-username.svg';
-import LoginButton from '../../common/LoginButton';
+import logo from 'assets/sensus-pro.png';
+import { InputWithIcon } from 'components/common/Input';
+import lockSVG from 'assets/ico-lock.svg';
+import userSVG from 'assets/ico-username.svg';
+import LoginButton from 'components/common/LoginButton';
 import cx from 'classnames';
-import useFormValidation from '../../../utils/useFormValidation';
+import useFormValidation from 'hooks/useFormValidation';
+import useToken from 'hooks/useToken';
 
 const initialState = {
   loggingIn: false,
@@ -29,13 +30,6 @@ export const loginReducer = (state, action) => {
 
 export default function Login() {
   const [state, dispatch] = useReducer(loginReducer, initialState);
-  const handleInput = useCallback(
-    ({ target: { name, value } }) => {
-      dispatch({ type: 'HANDLE_INPUT', name, value }),
-        omitError(name);
-    },
-    [dispatch],
-  );
 
   const dataToValidate = [
     {
@@ -56,9 +50,16 @@ export default function Login() {
     omitError,
   } = useFormValidation();
 
+  const { error, getToken, requesting } = useToken();
+
+  const handleInput = ({ target: { name, value } }) => {
+    omitError(name);
+    dispatch({ type: 'HANDLE_INPUT', name, value });
+  };
+
   const handleSubmit = useCallback(e => {
     e.preventDefault();
-    checkIsFormValid(dataToValidate) && console.log('ok');
+    checkIsFormValid(dataToValidate) && getToken(state);
   });
 
   return (
@@ -70,6 +71,7 @@ export default function Login() {
         <form noValidate onSubmit={handleSubmit}>
           <InputWithIcon
             name="username"
+            placeholder="Username"
             value={state.username}
             onChange={handleInput}
             iconSrc={userSVG}
@@ -82,6 +84,8 @@ export default function Login() {
           )}
           <InputWithIcon
             name="password"
+            type="password"
+            placeholder="Password"
             value={state.password}
             onChange={handleInput}
             iconSrc={lockSVG}
@@ -92,7 +96,13 @@ export default function Login() {
               {getErrors('password')}
             </div>
           )}
-          <LoginButton className={styles.loginBtn} />
+          <LoginButton
+            loading={requesting}
+            className={styles.loginBtn}
+          />
+          {error && (
+            <div className={cx(styles.error, 'mt-20')}>{error}</div>
+          )}
         </form>
       </div>
     </div>

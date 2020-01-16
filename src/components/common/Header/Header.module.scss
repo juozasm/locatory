@@ -1,0 +1,16 @@
+@import '~styles/theme.scss';
+.root {
+  width: 100%;
+  height: $header-height;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  max-width: 1920px;
+}
+.logo {
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}

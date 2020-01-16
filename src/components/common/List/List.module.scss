@@ -1,0 +1,17 @@
+@import '~styles/theme.scss';
+.root {
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 15px;
+  background-color: #ffffff;
+  color: $grey-text;
+  font-size: 14px;
+  border-bottom: 1px solid $grey-background;
+  &.header {
+    color: $dim-grey-text;
+    background-color: $grey-background;
+  }
+}
